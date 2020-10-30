@@ -1,0 +1,18 @@
+On utlise le debogueur ddd (version graphique de gdb).
+Premièrement, on exectue gdb ./main (ou ddd ./main) (main est l'exectuable)
+1ère version avec breakpoint, on utilise la comment b suivie de la ligne où l'on veut mettre le breakpoint: ex: b 24.
+    on peut ensuie run le programme avec run suivie des arguments du main si besoin.
+    On va donc s'arrêter au premier breakpoint.
+    A partir de cet endroit, on peut afficher les variables avec la commande print.
+    print donne $i = n où i est le nombre de print rentré par l'utilisateur dans gdb et n la valeur de la variable demandée. ex print i: $1 = 21845 si i n'est pas inittialisée
+    si i est inittialisée, print i: $1 = 0 par exemple.
+    On peut également utiliser la commande display qui donne i: var = n; où i est le nombre de display entré par l'utilisateur, var la variable demandé et n la valeur de la variable.
+    Pour se rentre au breakpoint suivant ou simplement finir l'exécution, on utlise la commande continue qui poursuit l'éxécution. 
+2ème version avec l'éxécution pas à pas. 
+    On utilse la commande next, pour exécuter la ligne suivante. Cette commande affiche la ligne où l'éxécute l'instruction et l'instruction elle même. ex: 15 empiler(pile,argv[i][0]-'0');
+    On peut également utiliser la commande step qui exectute instruction par instruction mais rentre dans une fonciton si elle est appellée (contraiement à next). ex: 21 p->pile[p->pp] = x; (dans la fonction empiler)
+    la commande stepi execute seulement une instruction exactement et la commande nexti fait de même (mais avec la fonctionnalité de next)
+    à ces fonctions, on peut leur passer en argument N (int) qui permet de répéter N fois la commande.
+    Enfin, nous avons les fonctions continue, et finish. continue execute le programme jusqu'au prochain breakpoint ou jusqu'à la fin de celui-ci et finish sort de la fonction dans laquelle on execute les actions.
+Si nous sommes dans le main, finish n'aura pas d'effet. Il faut donc préalablement entrer dans une fonction. 
+
